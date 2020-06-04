@@ -2,6 +2,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import torchvision
+from torchvision import datasets
+from torch.utils.data import DataLoader
+from torchvision import transforms
+
+transform=transforms.ToTensor()
+train=datasets.EMNIST(root='./data', split= 'byclass', train=True, download=True, transform=transform)
+test=datasets.EMNIST(root='./data', split= 'byclass', train=False, download=True, transform=transform)
 
 class Model(nn.Module):
     def __init__(self):
@@ -34,8 +42,7 @@ class Model(nn.Module):
 
 CNN=Model()
 print(CNN)
-loss= nn.MSELoss()
+#balancingwts= torch.tensor(62)
+#loss= nn.CrossEntropyLoss(weight=)
 optimizer= optim.Adam(CNN.parameters(), lr=1e-5)
-
-
 
