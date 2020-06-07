@@ -31,7 +31,7 @@ print(np.add(a,b))
 print(np.subtract(a,b))
 print(np.multiply(a,b))
 print(np.linalg.inv(c))
-"""
+
 nfilt = torch.tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 nlayer = list(nfilt.size())
 print(nlayer[0])
@@ -39,3 +39,15 @@ print(nlayer[0])
 nfilt=torch.tensor([1,1])
 nconvlayer = len(list(nfilt))
 print(nconvlayer)
+print(torch.tensor(62))
+"""
+
+import torch
+print(torch.cuda.is_available())
+a=torch.tensor([1,2,3,4,5,6,7,8,9])
+c=torch.tensor([1,2,3,4,5,6,7,8,9])
+torch.save(a,'file.pt')
+torch.save(c,'file.pt')
+b,d=torch.load('file.pt')
+print(b)
+print(d)
